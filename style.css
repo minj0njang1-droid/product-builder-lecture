@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #87CEEB; /* 하늘색 */
+    background-color: #87CEEB;
     font-family: 'Arial', sans-serif;
 }
 
@@ -25,11 +25,46 @@ canvas {
     pointer-events: none;
 }
 
-h1 {
-    margin: 0;
-    font-size: 24px;
+#score-board {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-p {
-    margin: 5px 0 0;
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#game-over h2 {
+    font-size: 48px;
+    margin: 0 0 20px;
+    color: #FF4500;
+}
+
+#game-over button {
+    padding: 10px 30px;
+    font-size: 20px;
+    background: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#game-over button:hover {
+    background: #FF6347;
+}
+
+.hidden {
+    display: none !important;
 }

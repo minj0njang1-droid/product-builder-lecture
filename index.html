@@ -11,7 +11,13 @@
         <canvas id="gameCanvas"></canvas>
         <div id="ui">
             <h1>비행기 조종사</h1>
+            <div id="score-board">Score: <span id="score">0</span></div>
             <p>방향키로 움직이세요!</p>
+        </div>
+        <div id="game-over" class="hidden">
+            <h2>GAME OVER</h2>
+            <p>최종 점수: <span id="final-score">0</span></p>
+            <button onclick="location.reload()">다시 시작</button>
         </div>
     </div>
     <script src="main.js"></script>
