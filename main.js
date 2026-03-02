@@ -4,6 +4,31 @@ const scoreElement = document.getElementById('score');
 const gameOverScreen = document.getElementById('game-over');
 const finalScoreElement = document.getElementById('final-score');
 
+// 모달 관련 요소
+const contactBtn = document.getElementById('contact-btn');
+const contactModal = document.getElementById('contact-modal');
+const closeModal = document.getElementById('close-modal');
+
+// 모달 열기/닫기 이벤트
+contactBtn.addEventListener('click', () => {
+    contactModal.classList.remove('hidden');
+    isGameOver = true; // 게임 일시정지 효과
+});
+
+closeModal.addEventListener('click', () => {
+    contactModal.classList.add('hidden');
+    isGameOver = false;
+    animate(); // 게임 재개
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+        contactModal.classList.add('hidden');
+        isGameOver = false;
+        animate();
+    }
+});
+
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

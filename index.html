@@ -19,7 +19,28 @@
             <p>최종 점수: <span id="final-score">0</span></p>
             <button onclick="location.reload()">다시 시작</button>
         </div>
+
+        <button id="contact-btn">🤝 제휴 문의</button>
+
+        <div id="contact-modal" class="hidden">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+                <h2>제휴 문의</h2>
+                <form action="https://formspree.io/f/mbdaenlz" method="POST">
+                    <label>성함/업체명</label>
+                    <input type="text" name="name" required placeholder="홍길동">
+                    
+                    <label>이메일 주소</label>
+                    <input type="email" name="email" required placeholder="example@email.com">
+                    
+                    <label>문의 내용</label>
+                    <textarea name="message" required placeholder="문의하실 내용을 입력해주세요."></textarea>
+                    
+                    <button type="submit">문의 보내기</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
-</html>
+</html>2222
