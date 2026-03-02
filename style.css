@@ -1,165 +1,114 @@
+:root {
+    --primary-color: #FF5722;
+    --secondary-color: #FFC107;
+    --background-color: #fdf6f0;
+    --text-color: #333;
+    --card-bg: #fff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
 body {
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #87CEEB;
-    font-family: 'Arial', sans-serif;
-}
-
-#game-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
-canvas {
-    display: block;
-}
-
-#ui {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    pointer-events: none;
-}
-
-#score-board {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-#game-over h2 {
-    font-size: 48px;
-    margin: 0 0 20px;
-    color: #FF4500;
-}
-
-#game-over button {
-    padding: 10px 30px;
-    font-size: 20px;
-    background: #FF4500;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#game-over button:hover {
-    background: #FF6347;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* 제휴 문의 버튼 */
-#contact-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 100;
-    transition: transform 0.2s;
-}
-
-#contact-btn:hover {
-    transform: scale(1.05);
-}
-
-/* 모달창 */
-#contact-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    min-height: 100vh;
 }
 
-.modal-content {
-    background: white;
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #666;
+    margin-top: 5px;
+}
+
+main {
+    margin-top: 40px;
+}
+
+.result-card {
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-#close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #666;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.modal-content form {
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-out;
 }
 
-.modal-content label {
-    margin-top: 15px;
+.result-card.animate {
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.category-tag {
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
     font-weight: bold;
-    font-size: 14px;
-    color: #444;
+    margin-bottom: 15px;
 }
 
-.modal-content input, .modal-content textarea {
-    margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
+#food-name {
+    margin: 10px 0;
+    font-size: 1.8rem;
 }
 
-.modal-content textarea {
-    height: 100px;
-    resize: none;
+.emoji {
+    font-size: 3.5rem;
+    margin-top: 10px;
 }
 
-.modal-content button[type="submit"] {
-    margin-top: 20px;
-    padding: 12px;
-    background: #FF4500;
+#recommend-btn {
+    background: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
     font-weight: bold;
+    border-radius: 50px;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+    transition: all 0.2s;
+}
+
+#recommend-btn:hover {
+    background: #e64a19;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4);
+}
+
+#recommend-btn:active {
+    transform: translateY(0);
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #999;
 }
